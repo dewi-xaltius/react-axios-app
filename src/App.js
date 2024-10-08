@@ -2,19 +2,20 @@ import './App.css';
 import useApi from './useApi';
 
 function App() {
-  const { data, loading, error } = useApi("https://jsonplaceholder.typicode.com/posts");
+  const URL = "https://jsonplaceholder.typicode.com/posts";
+  const { data, loading, error } = useApi(URL);
   
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading posits!</p>;
+  if (error) return <p>Error loading posts!</p>;
   
   return (
     <div className="App">
       <h1>Posts</h1>
-      <ul>
+      <div>
         {data.map(post => (
-          <li key={post.id}>{post.title}</li>
+          <button key={post.id}>{post.title}</button>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
