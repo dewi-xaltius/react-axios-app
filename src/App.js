@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import useApi from './useApi';
 
 function App() {
+  const { data, loading, error } = useApi("https://jsonplaceholder.typicode.com/posts");
+  
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading posits!</p>;
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Posts</h1>
+      <ul>
+        {data.map(post => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
