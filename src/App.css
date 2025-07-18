@@ -2,8 +2,31 @@
   text-align: center;
 }
 
-button {
+/* button {
   margin: 1em;
   background-color: #588157;
   color: white;
+} */
+ button {
+  margin: 0.5em; /* Adjusted margin for better spacing */
+  background-color: #9d4edd; 
+  color: white;
+  border: none; /* Remove default button border */
+  cursor: pointer;
+  padding: 1em; /* Adjust padding to help form a circle */
+  width: 100px; /* Fixed width for circular shape */
+  height: 100px; /* Fixed height for circular shape */
+  border-radius: 50%; /* Makes the button perfectly round */
+  display: inline-flex; /* Use flexbox for centering content */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  font-size: 0.9em; /* Adjust font size if needed */
+  text-align: center; /* Ensure text is centered */
+  overflow: hidden; /* Hide overflowing text if username is too long */
+  white-space: normal; /* Allow text to wrap */
+  word-break: break-word; /* Break long words */
+}
+
+button:hover {
+  background-color: #c77dff; 
 }
